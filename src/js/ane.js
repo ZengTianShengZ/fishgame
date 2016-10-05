@@ -4,13 +4,13 @@
 
 var aneObj = function () {
     this.x = [];
-    this.l = [];
+    this.len = [];
 }
 aneObj.prototype.num = 50;
 aneObj.prototype.init = function () {
     for(var i = 0; i<this.num ; i++){
         this.x[i] = i*20 + Math.random()*20;
-        this.l[i] = 200 + Math.random()*50;
+        this.len[i] = 200 + Math.random()*50;
     }
 }
 aneObj.prototype.draw = function () {
@@ -23,7 +23,7 @@ aneObj.prototype.draw = function () {
     for(var i=0,len=this.num; i<len; i++){
         ctx2.beginPath();
         ctx2.moveTo(this.x[i],canHeight);
-        ctx2.lineTo(this.x[i],canHeight-this.l[i]);
+        ctx2.lineTo(this.x[i],canHeight-this.len[i]);
         ctx2.stroke();
     }
     // 释放画笔，给其他程序绘制用

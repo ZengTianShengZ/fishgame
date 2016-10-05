@@ -15,6 +15,7 @@ var canWidth; // 画布宽高
 var canHeight;
 
 var aneObj;
+var fruitObj;
 
 document.body.onload = game;
 function game() {
@@ -40,6 +41,8 @@ function init() {
 
     aneObj = new aneObj();
     aneObj.init();
+    fruitObj = new fruitObj();
+    fruitObj.init();
 
 }
 function gameloop() {
@@ -49,5 +52,6 @@ function gameloop() {
     lastTime = now;
 
     aneObj.draw();
+    fruitObj.draw();
 
 }
