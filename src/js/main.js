@@ -14,6 +14,8 @@ var bgPic;
 var canWidth; // 画布宽高
 var canHeight;
 
+var aneObj;
+
 document.body.onload = game;
 function game() {
     init();
@@ -36,6 +38,8 @@ function init() {
         drawBackgrond();
     }
 
+    aneObj = new aneObj();
+    aneObj.init();
 
 }
 function gameloop() {
@@ -43,5 +47,7 @@ function gameloop() {
     var now = Date.now();
     deltaTime = now - lastTime;
     lastTime = now;
+
+    aneObj.draw();
 
 }
