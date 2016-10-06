@@ -53,7 +53,7 @@ fruitObj.prototype.draw = function () {
     }
 }
 fruitObj.prototype.born = function (i) {
-    console.log("born" + i);
+
     var aneID = Math.floor( Math.random() * ane.num ) ;
     this.x[i] = ane.x[aneID];
     this.y[i] = canHeight -  ane.len[aneID];
@@ -76,13 +76,13 @@ function fruitMonitor() {
         }
     }
     if(alive_num < 15){
-        console.log("num<15");
+
         sendFruit();
         return;
     }
 }
 function sendFruit() {
-    console.log("nsendFruit");
+
     for(var i=0,len=fruit.num; i<len; i++){
         if(!fruit.alive[i]){
             fruit.born(i);
