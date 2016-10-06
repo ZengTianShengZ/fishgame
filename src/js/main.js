@@ -14,8 +14,8 @@ var bgPic;
 var canWidth; // 画布宽高
 var canHeight;
 
-var aneObj;
-var fruitObj;
+var ane;
+var fruit;
 
 document.body.onload = game;
 function game() {
@@ -35,14 +35,14 @@ function init() {
 
     bgPic = new Image();
     bgPic.src = "src/imgs/background.jpg"
-    bgPic.onload = function () {
+ /*   bgPic.onload = function () {
         drawBackgrond();
-    }
+    }*/
 
-    aneObj = new aneObj();
-    aneObj.init();
-    fruitObj = new fruitObj();
-    fruitObj.init();
+    ane = new aneObj();
+    ane.init();
+    fruit = new fruitObj();
+    fruit.init();
 
 }
 function gameloop() {
@@ -51,7 +51,13 @@ function gameloop() {
     deltaTime = now - lastTime;
     lastTime = now;
 
-    aneObj.draw();
-    fruitObj.draw();
+    // 背景图要一直重绘，用于覆盖果实避免果实成一条直线
+    drawBackgrond();
+
+    ane.draw();
+    fruitMonitor();
+    fruit.draw();
+
+
 
 }
