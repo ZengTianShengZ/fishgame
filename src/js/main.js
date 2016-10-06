@@ -14,6 +14,9 @@ var bgPic;
 var canWidth; // 画布宽高
 var canHeight;
 
+var mx;// 鼠标坐标
+var my;
+
 var ane;
 var fruit;
 var mom;
@@ -31,8 +34,13 @@ function init() {
     can2 = document.getElementById("canvas2");
     ctx2 = can1.getContext("2d");
 
+    can1.addEventListener("mousemove",onMouseMove,false);
+
     canWidth = can1.width;
     canHeight = can1.height;
+
+    mx = canWidth * 0.5;
+    my = canHeight * 0.5;    //初始化鼠标开始的位置
 
     bgPic = new Image();
     bgPic.src = "src/imgs/background.jpg"
@@ -63,4 +71,10 @@ function gameloop() {
     mom.draw();
 
 
+}
+function onMouseMove(e) {
+    if(e.offsetX || e.layerX){
+        mx = e.offsetX === undefined ?  e.layerX : e.offsetX;
+        my = e.offsetY === undefined ?  e.layerY : e.offsetY;
+    }
 }
