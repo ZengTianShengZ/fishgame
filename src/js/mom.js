@@ -37,8 +37,9 @@ momObj.prototype.draw = function () {
     ctx1.translate(this.x,this.y);
     // rotate 用于旋转画布
     ctx1.rotate(this.angle);
-    ctx1.drawImage(this.bigEys , -this.bigEys.width * 0.5, -this.bigEys.height * 0.5);
+
     ctx1.drawImage(this.bigBody , -this.bigBody.width * 0.5, -this.bigBody.height * 0.5);
+    ctx1.drawImage(this.bigEys , -this.bigEys.width * 0.5, -this.bigEys.height * 0.5);
     ctx1.drawImage(this.bigTail ,-this.bigTail.width * 0.5 + 30, -this.bigTail.height * 0.5);
     ctx1.restore();
 }

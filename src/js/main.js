@@ -20,6 +20,7 @@ var my;
 var ane;
 var fruit;
 var mom;
+var baby;
 
 document.body.onload = game;
 function game() {
@@ -54,6 +55,8 @@ function init() {
     fruit.init();
     mom = new momObj();
     mom.init();
+    baby = new babyObj();
+    baby.init();
 
 }
 function gameloop() {
@@ -73,6 +76,7 @@ function gameloop() {
     fruitMonitor();
     fruit.draw();
     mom.draw();
+    baby.draw();
 
     momFruitsCollision();
 
