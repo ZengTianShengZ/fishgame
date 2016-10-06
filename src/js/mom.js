@@ -18,7 +18,7 @@ momObj.prototype.init = function () {
     this.bigTail.src = "src/imgs/bigTail0.png";
 }
 momObj.prototype.draw = function () {
-    // 下面涉及到数学计算，勾股定理， delta 
+    // 下面涉及到数学计算，勾股定理， delta
     // lerpDistance 封装了 一个函数， 让 this.x 趋向于 mx 值 ，0.98 为趋向速度 ，
     this.x = lerpDistance(mx ,this.x,0.98 );
     this.y = lerpDistance(my ,this.y,0.98 );

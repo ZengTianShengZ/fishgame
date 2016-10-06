@@ -67,7 +67,10 @@ fruitObj.prototype.born = function (i) {
         this.fruitType[i] = 'fruit';
     }
 }
-
+fruitObj.prototype.dead = function (i) {
+    // 为什么 置为 false 果实就消失呢 ， 因为下一帧绘制的时候 alive[i] = false 就不绘制对应的 i的果实了
+    this.alive[i] = false;
+}
 function fruitMonitor() {
     var alive_num = 0;
     for(var i=0,len=fruit.num; i<len; i++){

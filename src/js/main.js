@@ -60,7 +60,11 @@ function gameloop() {
     requestAnimFrame(gameloop); // 根据浏览器的实时性能绘制每一贞 ，不会丢帧，但每一帧的时间间隔可能会不一样，相比setTimeout，setTimeout严格定时
     var now = Date.now();
     deltaTime = now - lastTime;
+    if(deltaTime > 40){
+        deltaTime = 40;
+    }
     lastTime = now;
+
 
     // 背景图要一直重绘，用于覆盖果实避免果实成一条直线
     drawBackgrond();
@@ -70,6 +74,7 @@ function gameloop() {
     fruit.draw();
     mom.draw();
 
+    momFruitsCollision();
 
 }
 function onMouseMove(e) {
