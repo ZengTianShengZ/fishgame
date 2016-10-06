@@ -21,10 +21,16 @@ var ane;
 var fruit;
 var mom;
 var baby;
+var data;
 
-var babyTail = [];
+var babyTail = [];  // 小鱼
 var babyEye = [];
 var babyBody = [];
+
+var momTail = [];
+var momEye = [];
+var momBodyOra = [];  //大鱼橙色身体
+var momBodyBlue = [];  //大鱼蓝色身体
 
 document.body.onload = game;
 function game() {
@@ -66,6 +72,26 @@ function init() {
         babyBody[i].src = "src/imgs/babyFade"+i+".png";
     }
 
+    //初始化大鱼尾巴数组
+    for(var mi = 0; mi < 8; mi++) {
+        momTail[mi] = new Image();
+        momTail[mi].src = "src/imgs/bigTail" + mi + ".png";
+    }
+    for(var mj = 0; mj < 2; mj++) {
+        momEye[mj] = new Image();
+        momEye[mj].src = "src/imgs/bigEye" + mj + ".png";
+    }
+    for(var i = 0; i < 8; i++) {
+        momBodyOra[i] = new Image();
+        momBodyBlue[i] = new Image();
+        momBodyOra[i].src = "src/imgs/bigSwim" + i + ".png";
+        momBodyBlue[i].src = "src/imgs/bigSwimBlue" + i + ".png";
+    }
+
+    ctx1.fillStyle = "#FFF";
+    ctx1.font = "30px Verdana";
+    ctx1.textAlign = "center";
+
     ane = new aneObj();
     ane.init();
     fruit = new fruitObj();
@@ -74,6 +100,7 @@ function init() {
     mom.init();
     baby = new babyObj();
     baby.init();
+    data = new dataObj();
 
 }
 function gameloop() {
@@ -94,13 +121,17 @@ function gameloop() {
     fruit.draw();
     mom.draw();
     baby.draw();
+    data.draw();
 
     momFruitsCollision();
+    momBabyCollision();
 
 }
 function onMouseMove(e) {
-    if(e.offsetX || e.layerX){
-        mx = e.offsetX === undefined ?  e.layerX : e.offsetX;
-        my = e.offsetY === undefined ?  e.layerY : e.offsetY;
+    if(!data.gameOver){
+        if(e.offsetX || e.layerX){
+            mx = e.offsetX === undefined ?  e.layerX : e.offsetX;
+            my = e.offsetY === undefined ?  e.layerY : e.offsetY;
+        }
     }
 }

@@ -74,6 +74,7 @@ babyObj.prototype.draw = function () {
         if(this.babyBodyCount >= 19){
             this.babyBodyCount = 19;
             // Game Over
+            data.gameOver = true;
         }
     }
 
