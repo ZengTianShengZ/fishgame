@@ -13,6 +13,7 @@ function momFruitsCollision() {
                 if(l < 900){
                     // fruit eaten
                     fruit.dead(i);
+                    wave.born(fruit.x[i],fruit.y[i]);
                     data.fruitNum ++ ;
                     mom.momBodyCount ++;
                     if(mom.momBodyCount > 7){
@@ -38,6 +39,7 @@ function momBabyCollision() {
                 baby.babyBodyCount = 0;
                 mom.momBodyCount = 0;  //碰撞后大鱼身体恢复
                 data.addScore();
+
             }
         }
 

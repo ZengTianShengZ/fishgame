@@ -22,6 +22,7 @@ var fruit;
 var mom;
 var baby;
 var data;
+var wave;
 
 var babyTail = [];  // 小鱼
 var babyEye = [];
@@ -101,6 +102,8 @@ function init() {
     baby = new babyObj();
     baby.init();
     data = new dataObj();
+    wave = new waveObj();
+    wave.init();
 
 }
 function gameloop() {
@@ -122,6 +125,7 @@ function gameloop() {
     mom.draw();
     baby.draw();
     data.draw();
+    wave.draw();
 
     momFruitsCollision();
     momBabyCollision();
